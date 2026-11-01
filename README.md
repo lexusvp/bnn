@@ -39,9 +39,21 @@ s[r] = m[r] / 7,  if m[r] > 0
 s[r] = 0,         if m[r] = 0
 ```
 
-For a nonzero row, divide each weight by `s[r]`, round to the nearest integer, then clip to the signed INT4 range `[-7, 7]`. A zero row must be handled without dividing by zero. Two 4-bit values are packed into each byte.
+For a nonzero row, quantize each weight directly from the original value and row maximum:
 
-Activations are dynamically quantized to signed INT8. The matrix-vector result is then rescaled using the weight-row scale and activation scale.
+```text
+q[r,c] = clamp(round((W[r,c] / m[r]) * 7), -7, 7)
+```
+
+For `m[r] = 0`, the row is encoded as all zeros. The stored scale remains `s[r] = m[r] / 7`, so dequantization uses `W_hat[r,c] = q[r,c] * s[r]`. The direct ratio avoids an extra division by the rounded floating-point scale before rounding. Two signed 4-bit values are packed into each byte.
+
+Activations are dynamically quantized to signed INT8 using the same original-maximum rule:
+
+```text
+xq[c] = clamp(round((x[c] / max_abs(x)) * 127), -127, 127)
+```
+
+The matrix-vector result is rescaled using the weight-row scale and activation scale.
 
 This is a simple reference implementation. Its numerical error, edge cases, and performance must be measured against an FP32 baseline on representative workloads.
 
