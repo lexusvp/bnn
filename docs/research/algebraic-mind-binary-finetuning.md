@@ -189,7 +189,7 @@ Training arms: A4, A5 and A4-S, three seeds each, so 9 runs. Wall time uses the 
 
 | Reference | Status |
 |---|---|
-| Marcus, G. F. (2001). *The Algebraic Mind.* MIT Press. | **VERIFIED** (catalogue records) |
+| Marcus, G. F. (2001). *The Algebraic Mind: Integrating Connectionism and Cognitive Science.* MIT Press. Hardcover ISBN: 9780262133791; [official MIT Press record](https://mitpress.mit.edu/9780262632683/the-algebraic-mind/). | **VERIFIED — publisher metadata only**; book text/chapter/page claims remain UNKNOWN until directly checked |
 | Marcus, G. F., Vijayan, S., Bandi Rao, S., & Vishton, P. M. (1999). “Rule learning by seven-month-old infants.” *Science*, 283(5398), 77–80. DOI: [10.1126/science.283.5398.77](https://doi.org/10.1126/science.283.5398.77). | **VERIFIED — bibliographic record only**; empirical infant result, not evidence about nanoLM |
 | Courbariaux, M., Bengio, Y., & David, J.-P. (2015). “BinaryConnect: Training Deep Neural Networks with binary weights during propagations.” arXiv:1511.00363. [arXiv](https://arxiv.org/abs/1511.00363). | **VERIFIED — preprint record**; results remain task-specific empirical findings |
 | Hubara, I., Courbariaux, M., Soudry, D., El-Yaniv, R., & Bengio, Y. (2016). “Binarized Neural Networks.” *Advances in Neural Information Processing Systems 29*. [Official NeurIPS proceedings](https://proceedings.neurips.cc/paper/2016/hash/d8330f857a17c53d217014ee776bfd50-Abstract.html). | **VERIFIED — peer-reviewed proceedings**; reported 7× result is specific to the paper’s GPU-kernel comparison |
